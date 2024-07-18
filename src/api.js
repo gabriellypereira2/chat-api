@@ -21,5 +21,14 @@ app.use("/", router.get("/salas", async (req, res,)=>{
     res.status(200).send(resp);
 }));
 
-module.exports=app;
+/**hoje */
+app.use("/entrar", router.post("/entrar", async(req, res, next)=>{
+    const usuarioController = require("./controller/usuarioController");
+    let resp = await usuarioController.entrar(req.body.nick);
+    res.status(200).send(resp);
+}));
+/**/ 
+
+module.exports=app
+
 
