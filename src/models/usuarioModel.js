@@ -11,6 +11,11 @@ async function insertOne(collection, objeto){
 
 let buscarUsuario = async (idUser)=>{
     let user= await db.findOne("usuarios",idUser);
+    return user;
 }
-module.exports = {registrarUsuario}
+
+let alterarUsuario = async (user)=>{
+    return await db.updateOne("usaurios", user,{_id:user._id});
+}
+module.exports = {registrarUsuario, buscarUsuario, alterarUsuario}
 
